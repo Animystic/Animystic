@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبة المصمم الشاملة</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+    <header>
+        <h1 data-aos="fade-down">🎨 الفرصة الذهبية للمصممين والمحترفين!</h1>
+        <p data-aos="fade-up">احصل على مكتبة التصميم الأكثر شمولاً وتكاملاً بسعر مذهل!</p>
+    </header>
+
+    <section class="offer">
+        <h2 data-aos="zoom-in">💼 ماذا ستحصل عند الاشتراك؟</h2>
+        <ul>
+            <li data-aos="fade-right">📂 مكتبة تصميم شاملة بحجم 5 تيرابايت.</li>
+            <li data-aos="fade-left">🎨 برامج أدوبي مفعّلة بالكامل.</li>
+            <li data-aos="fade-right">📚 150+ دورة تدريبية مدفوعة.</li>
+            <li data-aos="fade-left">🖌️ مكتبة متنوعة: تصميمات، تيشرتات، أدوات دعاية.</li>
+        </ul>
+    </section>
+
+    <section class="cta">
+        <button id="buy-now" data-aos="flip-up">طلب شراء المكتبة</button>
+    </section>
+
+    <!-- صفحة منبثقة -->
+    <div class="popup" id="order-form">
+        <div class="popup-content" data-aos="zoom-in">
+            <h2>طلب شراء مكتبة المصمم الشاملة</h2>
+            <form id="orderForm">
+                <label for="name">الاسم الكامل:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">رقم الهاتف:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="email">البريد الإلكتروني:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="country">البلد:</label>
+                <input type="text" id="country" name="country" required>
+
+                <label for="currency">نوع العملة المفضلة للدفع:</label>
+                <input type="text" id="currency" name="currency" required>
+
+                <label for="notes">ملاحظات إضافية (اختياري):</label>
+                <textarea id="notes" name="notes"></textarea>
+
+                <button type="submit">إرسال</button>
+            </form>
+            <button id="close-popup">إغلاق</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
