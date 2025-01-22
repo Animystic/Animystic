@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبة المصمم الشاملة - العرض الخاص</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- القسم الرئيسي -->
+    <header class="hero">
+        <div class="container">
+            <h1 class="animate-fade-in-down">🎨 الفرصة الذهبية للمصممين والمحترفين!</h1>
+            <p class="hero-subtitle animate-fade-in-up">احصل على مكتبة التصميم الأكثر شمولاً في العالم العربي بسعر 20 دولار فقط!</p>
+            <button class="cta-btn animate-scale" onclick="showForm()">احصل على العرض الآن</button>
+        </div>
+    </header>
+
+    <!-- قسم المميزات -->
+    <section class="features">
+        <div class="container">
+            <div class="feature-card animate-slide-up">
+                <h2>💼 ماذا ستحصل عند الاشتراك؟</h2>
+                <ul class="feature-list">
+                    <li>مكتبة تصميم 5 تيرابايت مع مليون+ تصميم</li>
+                    <li>برامج أدوبي مفعّلة مع تحديثات مجانية</li>
+                    <li>150+ دورة تدريبية احترافية</li>
+                </ul>
+            </div>
+
+            <div class="feature-card animate-slide-up">
+                <h2>🎁 هدايا إضافية</h2>
+                <ul class="feature-list">
+                    <li>مكتبة المصمم العربي (2 تيرابايت إضافي)</li>
+                    <li>300,000 تصميم إضافي مفتوح المصدر</li>
+                    <li>أدوات وبرامج إحترافية حصرية</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- نموذج الطلب -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideForm()">&times;</span>
+            <h2>طلب شراء مكتبة المصمم الشاملة</h2>
+            <form id="orderForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label>الاسم الكامل:</label>
+                    <input type="text" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>رقم الهاتف:</label>
+                    <input type="tel" required>
+                </div>
+
+                <div class="form-group">
+                    <label>البريد الإلكتروني:</label>
+                    <input type="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>البلد:</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label>العملة المفضلة:</label>
+                    <select required>
+                        <option value="">اختر العملة</option>
+                        <option>دولار أمريكي (USD)</option>
+                        <option>ريال سعودي (SAR)</option>
+                        <option>جنيه مصري (EGP)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>ملاحظات إضافية:</label>
+                    <textarea rows="3"></textarea>
+                </div>
+
+                <button type="submit">إرسال الطلب</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة التأكيد -->
+    <div id="successModal" class="modal success">
+        <div class="modal-content">
+            <h3>✅ تم استلام بياناتك بنجاح!</h3>
+            <p>سيتم التواصل معك قريبًا لتزويدك برابط التحميل</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
