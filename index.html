@@ -37,13 +37,23 @@
     </header>
 
     <main>
-        <section class="video-section">
-            <div class="container">
-                <div class="video-wrapper animate-slide-up">
-                    <iframe src="https://drive.google.com/file/d/1Vyv764C2VgnGBugRKEGFxB3tnpgoH-1w/preview" allow="autoplay"></iframe>
-                </div>
-            </div>
-        </section>
+        <!-- === قسم الفيديو المعدل === -->
+<section class="video-section">
+    <div class="container">
+        <h2 class="video-title" onclick="toggleVideo()">
+            <span>رؤية محتوى المكتبة</span>
+            <i class="fas fa-chevron-down"></i>
+        </h2>
+        <div class="video-wrapper animate-slide-up">
+            <iframe 
+                src="https://vimeo.com/1049282324/4ce5b1f84f?share=copy" 
+                allowfullscreen
+                loading="lazy"
+                id="libraryVideo"
+            ></iframe>
+        </div>
+    </div>
+</section>
 
         <section class="offer-section animate-fade-in">
             <div class="container">
