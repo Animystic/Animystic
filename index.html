@@ -3,62 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتبة المصمم الشاملة</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <title>مكتبة المصمم الشاملة - العرض الخاص</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+        <!-- أضافةالـ SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- ثم تهيئة الـ User ID -->
+    <script>
+        emailjs.init("bUruSro_g_I5P9kRp"); // استبدل بالـ User ID الخاص بك
+    </script>
 </head>
 <body>
-    <header>
-        <h1 data-aos="fade-down">🎨 الفرصة الذهبية للمصممين والمحترفين!</h1>
-        <p data-aos="fade-up">احصل على مكتبة التصميم الأكثر شمولاً وتكاملاً بسعر مذهل!</p>
+    <!-- القسم الرئيسي -->
+    <header class="hero">
+        <div class="container">
+            <h1 class="animate-fade-in-down">🎨 الفرصة الذهبية للمصممين والمحترفين!</h1>
+            <p class="hero-subtitle animate-fade-in-up">احصل على مكتبة التصميم الأكثر شمولاً في العالم العربي بسعر 20 دولار فقط!</p>
+            <button class="cta-btn animate-scale" onclick="showForm()">احصل على العرض الآن</button>
+        </div>
     </header>
 
-    <section class="offer">
-        <h2 data-aos="zoom-in">💼 ماذا ستحصل عند الاشتراك؟</h2>
-        <ul>
-            <li data-aos="fade-right">📂 مكتبة تصميم شاملة بحجم 5 تيرابايت.</li>
-            <li data-aos="fade-left">🎨 برامج أدوبي مفعّلة بالكامل مع تحديثات دورية مجانية.</li>
-            <li data-aos="fade-right">📚 150+ دورة تدريبية مدفوعة تُغطي التصميم، الإبداع، والتطوير الشخصي.</li>
-            <li data-aos="fade-left">🖌️ مكتبة متنوعة: تصميمات احترافية، مكتبة تيشرتات، أدوات دعاية وإعلان.</li>
-        </ul>
-        <p data-aos="fade-up">🎁 هدية مجانية: مكتبة المصمم العربي بحجم 2 تيرابايت، تشمل 300,000 تصميم إضافي مفتوح المصدر وأدوات إضافية.</p>
+    <!-- قسم المميزات -->
+    <section class="features">
+        <div class="container">
+            <div class="feature-card animate-slide-up">
+                <h2>💼 ماذا ستحصل عند الاشتراك؟</h2>
+                <ul class="feature-list">
+                    <li>مكتبة تصميم 5 تيرابايت مع مليون+ تصميم</li>
+                    <li>برامج أدوبي مفعّلة مع تحديثات مجانية</li>
+                    <li>150+ دورة تدريبية احترافية</li>
+                </ul>
+            </div>
+
+            <div class="feature-card animate-slide-up">
+                <h2>🎁 هدايا إضافية</h2>
+                <ul class="feature-list">
+                    <li>مكتبة المصمم العربي (2 تيرابايت إضافي)</li>
+                    <li>300,000 تصميم إضافي مفتوح المصدر</li>
+                    <li>أدوات وبرامج إحترافية حصرية</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
-    <section class="cta">
-        <button id="buy-now" data-aos="flip-up">طلب شراء المكتبة</button>
-    </section>
-
-    <!-- صفحة منبثقة -->
-    <div class="popup" id="order-form">
-        <div class="popup-content" data-aos="zoom-in">
+    <!-- نموذج الطلب -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideForm()">&times;</span>
             <h2>طلب شراء مكتبة المصمم الشاملة</h2>
-            <form id="orderForm">
-                <label for="name">الاسم الكامل: <span>(يرجى إدخال اسمك كما ترغب في كتابته بالفاتورة)</span></label>
-                <input type="text" id="name" name="name" required>
+            <form id="orderForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label>الاسم الكامل:</label>
+                    <input type="text" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>رقم الهاتف:</label>
+                    <input type="tel" required>
+                </div>
 
-                <label for="phone">رقم الهاتف: <span>(للتواصل معك لإتمام الطلب أو حل أي استفسارات)</span></label>
-                <input type="tel" id="phone" name="phone" required>
+                <div class="form-group">
+                    <label>البريد الإلكتروني:</label>
+                    <input type="email" required>
+                </div>
 
-                <label for="email">البريد الإلكتروني: <span>(سيتم إرسال رابط التحميل إلى هذا البريد)</span></label>
-                <input type="email" id="email" name="email" required>
+                <div class="form-group">
+                    <label>البلد:</label>
+                    <input type="text" required>
+                </div>
 
-                <label for="country">البلد: <span>(يرجى كتابة اسم البلد الذي تقيم فيه)</span></label>
-                <input type="text" id="country" name="country" required>
+                <div class="form-group">
+                    <label>العملة المفضلة:</label>
+                    <select required>
+                        <option value="">اختر العملة</option>
+                        <option>دولار أمريكي (USD)</option>
+                        <option>ريال سعودي (SAR)</option>
+                        <option>جنيه مصري (EGP)</option>
+                    </select>
+                </div>
 
-                <label for="currency">نوع العملة المفضلة للدفع: <span>(يرجى تحديد العملة التي ستتم بها عملية الشراء)</span></label>
-                <input type="text" id="currency" name="currency" required>
+                <div class="form-group">
+                    <label>ملاحظات إضافية:</label>
+                    <textarea rows="3"></textarea>
+                </div>
 
-                <label for="notes">ملاحظات إضافية (اختياري): <span>(إذا كنت ترغب بإضافة أي استفسار أو تعليمات خاصة)</span></label>
-                <textarea id="notes" name="notes"></textarea>
-
-                <button type="submit">إرسال</button>
+                <button type="submit">إرسال الطلب</button>
             </form>
-            <button id="close-popup">إغلاق</button>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- نافذة التأكيد -->
+    <div id="successModal" class="modal success">
+        <div class="modal-content">
+            <h3>✅ تم استلام بياناتك بنجاح!</h3>
+            <p>سيتم التواصل معك قريبًا لتزويدك برابط التحميل</p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
-    </html>
+</html>
