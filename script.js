@@ -165,30 +165,58 @@ window.addEventListener('load', () => {
     iframe.removeAttribute('src'); // منع التحميل التلقائي
 });
 
-// عدّاد تنازلي لمدة 7 أيام
-function startCountdown() {
-    let countDownDate = new Date().getTime() + (7 * 24 * 60 * 60 * 1000);
+// تحديث وقت العداد من API خارجي
+async function getServerTime() {
+      const response = await fetch('https://worldtimeapi.org/api/ip');
+      const data = await response.json();
+      return data.unixtime * 1000; // تحويل إلى ميلي ثانية
+}
 
+// عدّاد تنازلي ذكي مع حفظ الحالة
+function initializeCountdown() {
+    const STORAGE_KEY = 'countdownEnd';
+    const SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000; // 7 أيام بالميلي ثانية
+
+    // التحقق من وجود وقت انتهاء مخزن
+    let countDownDate = localStorage.getItem(STORAGE_KEY);
+
+    if (!countDownDate || Date.now() > countDownDate) {
+        // إنشاء وقت انتهاء جديد إذا لم يوجد أو انتهى
+        countDownDate = Date.now() + SEVEN_DAYS;
+        localStorage.setItem(STORAGE_KEY, countDownDate);
+    } else {
+        countDownDate = parseInt(countDownDate);
+    }
+
+    // تحديث العداد كل ثانية
     const timer = setInterval(() => {
-        const now = new Date().getTime();
+        const now = Date.now();
         const distance = countDownDate - now;
 
         if (distance < 0) {
-            countDownDate = new Date().getTime() + (7 * 24 * 60 * 60 * 1000);
+            // إعادة التعيين التلقائي بعد 7 أيام
+            countDownDate = Date.now() + SEVEN_DAYS;
+            localStorage.setItem(STORAGE_KEY, countDownDate);
+            updateTimerDisplay(SEVEN_DAYS); // إعادة تعيين العرض فورًا
             return;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById('days').textContent = days.toString().padStart(2, '0');
-        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        updateTimerDisplay(distance);
     }, 1000);
 }
 
+// تحديث واجهة المستخدم
+function updateTimerDisplay(distance) {
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+}
+
 // بدء العد التنازلي عند تحميل الصفحة
-window.addEventListener('load', startCountdown);
+window.addEventListener('load', initializeCountdown);
