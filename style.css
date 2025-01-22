@@ -1,0 +1,115 @@
+/* style.css */
+:root {
+    --primary-color: #2A2D7C; /* لون الثقة */
+    --secondary-color: #6C4DDA; /* لون الإبداع */
+    --accent-color: #FF6B6B; /* لون التفاعل */
+    --dark-color: #2D2D2D;
+    --light-color: #F8F9FA;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: var(--light-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+/* التنسيقات العامة */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* التنسيقات المتحركة */
+.animate-fade-in-down {
+    animation: fadeInDown 1s ease;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* تصميم الهيدر */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.cta-btn {
+    background: var(--accent-color);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: scale(1.05);
+}
+
+/* تصميم البطاقات */
+.feature-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* تصميم النموذج */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input, 
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* تصميم النافذة الصغيرة */
+.success .modal-content {
+    text-align: center;
+    padding: 40px;
+    max-width: 400px;
+}
