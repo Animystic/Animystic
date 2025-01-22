@@ -125,26 +125,19 @@ body {
 
 .video-wrapper {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
     height: 0;
-    padding-bottom: 56.25%; /* نسبة 16:9 */
     overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    opacity: 0;
-    transition: all 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .video-wrapper.active {
-    height: auto;
-    opacity: 1;
-    padding-bottom: 56.25%;
+    height: 450px; /* ارتفاع ثابت للفيديو */
 }
 
 .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     border: none;
