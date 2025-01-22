@@ -142,6 +142,21 @@ window.addEventListener('scroll', () => {
     });
 });
 
+// === تحكم في عرض/إخفاء الفيديو ===
+function toggleVideo() {
+    const videoWrapper = document.querySelector('.video-wrapper');
+    const videoTitle = document.querySelector('.video-title');
+    
+    videoWrapper.classList.toggle('active');
+    videoTitle.classList.toggle('active');
+    
+    // إعادة تحميل الفيديو عند العرض
+    if(videoWrapper.classList.contains('active')) {
+        const iframe = document.getElementById('libraryVideo');
+        iframe.src = iframe.src; // إعادة تحميل المصدر
+    }
+}
+
 // عدّاد تنازلي لمدة 7 أيام
 function startCountdown() {
     let countDownDate = new Date().getTime() + (7 * 24 * 60 * 60 * 1000);
