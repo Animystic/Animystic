@@ -91,17 +91,54 @@ body {
     50% { text-shadow: 0 0 20px #FFD700, 0 0 30px #FFA500; }
 }
 
+/* === أنماط الفيديو الجديدة === */
 .video-section {
-    padding: 50px 0;
-    background: #fff;
+    padding: 40px 0;
+    background: linear-gradient(45deg, #f8f9fa, #ffffff);
+    text-align: center;
+}
+
+.video-title {
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgba(42, 42, 114, 0.05);
+    display: inline-block;
+}
+
+.video-title:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.video-title i {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.video-title.active i {
+    transform: rotate(180deg);
 }
 
 .video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    border-radius: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 0;
+    padding-bottom: 56.25%; /* نسبة 16:9 */
     overflow: hidden;
+    border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.video-wrapper.active {
+    height: auto;
+    opacity: 1;
+    padding-bottom: 56.25%;
 }
 
 .video-wrapper iframe {
@@ -110,6 +147,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    border: none;
 }
 
 .features-grid {
