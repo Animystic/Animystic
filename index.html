@@ -1,123 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتبة المصمم الشاملة - العرض الخاص</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header class="header animate-slide-down">
-        <img src="https://drive.google.com/uc?export=view&id=1WD-aIN01lToGATAVM6laTp8lxvuJgIRn" alt="شعار المكتبة" class="logo">
-        <div class="container">
-            <h1>🎨 الفرصة الذهبية للمصممين والمحترفين!</h1>
-            <p class="highlight-text">🔥 احصل على مكتبة التصميم الأكثر شمولاً بسعر 20 دولار فقط (بدلاً من 200 دولار)!</p>
-        </div>
-    </header>
-
-    <main>
-        <section class="video-section">
-            <div class="container">
-                <div class="video-wrapper animate-slide-up">
-                    <iframe src="https://drive.google.com/file/d/1Vyv764C2VgnGBugRKEGFxB3tnpgoH-1w/preview" allow="autoplay"></iframe>
-                </div>
-            </div>
-        </section>
-
-        <section class="offer-section animate-fade-in">
-            <div class="container">
-                <div class="offer-card">
-                    <h2>💼 ما الذي ستحصل عليه؟</h2>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <i class="fas fa-box-open"></i>
-                            <h3>مكتبة تصميم 5 تيرابايت</h3>
-                            <ul>
-                                <li>أكثر من مليون تصميم مفتوح المصدر</li>
-                                <li>برامج أدوبي مفعّلة مع تحديثات</li>
-                                <li>150+ دورة تدريبية مدفوعة</li>
-                            </ul>
-                        </div>
-
-                        <div class="feature-item">
-                            <i class="fas fa-palette"></i>
-                            <h3>مكتبة متنوعة ومميزة</h3>
-                            <ul>
-                                <li>تصاميم فوتوشوب وأفتر إفكت</li>
-                                <li>100,000+ تصميم تيشرتات</li>
-                                <li>200 جيجا أدوات دعاية وإعلان</li>
-                                <li>40,000 صورة وفيديو من شترستوك</li>
-                                <li>10,000+ خط وأيقونة مميزة</li>
-                            </ul>
-                        </div>
-
-                        <div class="feature-item">
-                            <i class="fas fa-gift"></i>
-                            <h3>هدية مجانية</h3>
-                            <ul>
-                                <li>مكتبة المصمم العربي (2 تيرابايت)</li>
-                                <li>300,000 تصميم إضافي</li>
-                                <li>أدوات وبرامج إضافية</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- باقي الأقسام كما كانت -->
-
-        <section class="cta-section animate-fade-in">
-            <div class="container">
-                <button class="cta-button" onclick="openForm()">اطلب الآن بخصم 90%</button>
-            </div>
-        </section>
-    </main>
-
-    <!-- Form Modal -->
-    <div id="formModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeForm()">&times;</span>
-            <h2>طلب شراء مكتبة المصمم الشاملة</h2>
-            <form id="orderForm">
-                <!-- الحقول السابقة -->
-                
-                <div class="form-group">
-                    <label>طريقة الاستلام:</label>
-                    <div class="delivery-options">
-                        <label class="option-card">
-                            <input type="radio" name="delivery" value="link" required>
-                            <div class="option-content">
-                                <h4>رابط تحميل المكتبة</h4>
-                            </div>
-                        </label>
-
-                        <label class="option-card">
-                            <input type="radio" name="delivery" value="drive" required>
-                            <div class="option-content">
-                                <h4>اونلاين عبر Google Drive</h4>
-                            </div>
-                        </label>
-
-                        <label class="option-card disabled">
-                            <input type="radio" name="delivery" disabled>
-                            <div class="option-content">
-                                <h4>اوفلاين عبر وحدة تخزين</h4>
-                                <small class="coming-soon">سيتم توفيره قريباً</small>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- باقي الحقول -->
-                
-                <button type="submit">إرسال الطلب</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- باقي الأكواد -->
-</body>
-    </html>
