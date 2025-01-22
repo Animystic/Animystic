@@ -147,15 +147,23 @@ function toggleVideo() {
     const videoWrapper = document.querySelector('.video-wrapper');
     const videoTitle = document.querySelector('.video-title');
     
+    // تبديل الكلاس active
     videoWrapper.classList.toggle('active');
     videoTitle.classList.toggle('active');
     
-    // إعادة تحميل الفيديو عند العرض
+    // إعادة تحميل الفيديو إذا كان مغلقًا
     if(videoWrapper.classList.contains('active')) {
         const iframe = document.getElementById('libraryVideo');
-        iframe.src = iframe.src; // إعادة تحميل المصدر
+        iframe.src = iframe.getAttribute('data-src'); // استخدام data-src بدل src
     }
 }
+
+// تهيئة الفيديو عند التحميل
+window.addEventListener('load', () => {
+    const iframe = document.getElementById('libraryVideo');
+    iframe.setAttribute('data-src', iframe.src);
+    iframe.removeAttribute('src'); // منع التحميل التلقائي
+});
 
 // عدّاد تنازلي لمدة 7 أيام
 function startCountdown() {
