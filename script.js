@@ -1,51 +1,33 @@
-// script.js
-function showForm() {
-    document.getElementById('orderModal').style.display = 'block';
-}
-
-function hideForm() {
-    document.getElementById('orderModal').style.display = 'none';
-}
-
-function submitForm(e) {
+// تحسينات في إرسال الفورم
+document.getElementById('orderForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // إرسال البيانات إلى الإيميل (يتطلب إعداد خدمة مثل EmailJS)
-    // يمكنك استخدام EmailJS أو أي خدمة مشابهة هنا
-    
-    hideForm();
-    showSuccess();
-    resetForm();
-}
+    const formData = {
+        // ... بيانات الحقول السابقة
+        delivery: this.delivery.value
+    };
 
-function showSuccess() {
-    const modal = document.getElementById('successModal');
-    modal.style.display = 'block';
-    setTimeout(() => { modal.style.display = 'none' }, 3000);
-}
-
-function resetForm() {
-    document.getElementById('orderForm').reset();
-}
+    emailjs.send('lanimysticl', 'design_library_order', formData)
+        .then(() => {
+            closeForm();
+            showSuccessModal();
+        }, (error) => {
+            alert('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
+        });
+});
 
 // إضافة تأثيرات عند التمرير
 window.addEventListener('scroll', () => {
-    const cards = document.querySelectorAll('.feature-card');
-    cards.forEach(card => {
-        const position = card.getBoundingClientRect();
-        if(position.top < window.innerHeight) {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+            el.classList.add('animate');
         }
     });
 });
 
-// لإغلاق النافذة عند النقر خارجها
-window.onclick = function(e) {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
-        if(e.target == modal) {
-            modal.style.display = 'none';
-        }
-    });
+// تحسين تجربة المستخدم للأجهزة اللوحية
+let isTouchDevice = 'ontouchstart' in window;
+if(isTouchDevice) {
+    document.body.classList.add('touch-device');
 }
