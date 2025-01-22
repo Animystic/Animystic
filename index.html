@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبة المصمم الشاملة - العرض الخاص</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header animate-slide-down">
+        <div class="container">
+            <h1>🎨 الفرصة الذهبية للمصممين والمحترفين!</h1>
+            <p class="highlight-text">🔥 احصل على مكتبة التصميم الأكثر شمولاً بسعر 20 دولار فقط (بدلاً من 200 دولار)!</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="offer-section animate-fade-in">
+            <div class="container">
+                <div class="offer-card">
+                    <h2>💼 ما الذي ستحصل عليه؟</h2>
+                    <ul class="features-list">
+                        <li><i class="fas fa-database"></i> مكتبة تصميم 5 تيرابايت</li>
+                        <li><i class="fas fa-video"></i> 150+ دورة تدريبية</li>
+                        <li><i class="fas fa-gift"></i> هدايا مجانية بقيمة 2 تيرابايت</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="details-section">
+            <div class="container">
+                <div class="grid-container">
+                    <div class="card animate-slide-left">
+                        <h3>📦 محتويات المكتبة</h3>
+                        <ul>
+                            <li>أكثر من مليون تصميم مفتوح المصدر</li>
+                            <li>برامج أدوبي مفعّلة مع تحديثات</li>
+                            <li>مكتبة شترستوك 40,000 صورة وفيديو</li>
+                        </ul>
+                    </div>
+
+                    <div class="card animate-slide-right">
+                        <h3>✨ لماذا نحن؟</h3>
+                        <ul>
+                            <li>تحديثات مستمرة</li>
+                            <li>توفير مئات الدولارات</li>
+                            <li>وصول فوري أونلاين</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section animate-fade-in">
+            <div class="container">
+                <button class="cta-button" onclick="openForm()">اطلب الآن بخصم 90%</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Form Modal -->
+    <div id="formModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeForm()">&times;</span>
+            <h2>طلب شراء مكتبة المصمم الشاملة</h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label>الاسم الكامل:</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>رقم الهاتف:</label>
+                    <input type="tel" required>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني:</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>البلد:</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>العملة المفضلة:</label>
+                    <select required>
+                        <option value="">اختر العملة</option>
+                        <option>دولار أمريكي</option>
+                        <option>يورو</option>
+                        <option>ريال سعودي</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>ملاحظات إضافية:</label>
+                    <textarea rows="3"></textarea>
+                </div>
+                <button type="submit">إرسال الطلب</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal success-modal">
+        <div class="modal-content">
+            <h2>تم استلام طلبك بنجاح! 🎉</h2>
+            <p>سيتم التواصل معك خلال 24 ساعة لإتمام العملية.</p>
+            <button onclick="closeSuccess()">موافق</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
